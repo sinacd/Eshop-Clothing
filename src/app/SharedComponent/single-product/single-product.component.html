@@ -1,0 +1,42 @@
+     <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--blazers" data-price="1567" data-popularity="2" data-size="xs|s|m|xl" data-color="pink" data-brand="adidas">
+                    	        <div class="product">
+                    	             
+                	                    <div class="stamp red">تمام شد</div>
+            	                     
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" [src]="imagePath+product.imageName" />
+											
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" [routerLink]="['/products',product.id,productName]">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" (click)="addProductToOrder()">اضافه به سبد خرید</a>
+												<swal
+												#sweetAlart
+												title="کالا به سبد خرید اصافه شد"
+												text=""
+												icon="success"
+											 >
+											</swal>
+											</div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 id="price" class="title">{{product.price}} تومان</h4>
+                    	                <h4 id="name" class="no-margin isotope--title longtext">{{product.productName}}</h4>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+                    	                 
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+                    	     
+            
+                	

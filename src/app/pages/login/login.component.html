@@ -1,0 +1,107 @@
+<div class="darker-stripe">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li>
+                        <a routerLink="">وبمارکت</a>
+                    </li>
+                    <li><span class="icon-chevron-right"></span></li>
+                    <li>
+                        <a href="contact.html">   ورود  </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="push-up top-equal blocks-spacer-last">
+        <div class="row">
+            
+            <!--  ==========  -->
+            <!--  = Main Title =  -->
+            <!--  ==========  -->
+            
+            <div class="span12">
+                <div class="title-area">
+                    <h1 class="inline">  ورود</h1>
+                </div>
+            </div>
+            
+            <!--  ==========  -->
+            <!--  = Main content =  -->
+            <!--  ==========  -->
+            <section class="span8 single single-page">
+                
+          
+                <!--  ==========  -->
+                <!--  = Register Form =  -->
+                <!--  ==========  -->
+                <section class="contact-form-container">
+                    
+                    <h3 class="push-down-25"><span class="light">ارسال</span> پیام</h3>
+                    
+                    <form [formGroup]="loginForm" class="form form-inline form-contact" (ngSubmit)="submitLoginForm()">
+                       
+                        <p class="push-down-20">
+                            <label>ایمیل <span class="red-clr bold">*</span></label>
+                            <input type="email" class="span12" tabindex="3" formControlName="email">
+                        </p>
+                        <p class="text-error" *ngIf="loginForm.controls['email'].errors?.['email'] && loginForm.controls['email'].touched" >
+                            ایمیل وارد شده معتبر نیست
+                        </p>
+                       
+                        <p class="push-down-20">
+                            <label>پسورد <span class="red-clr bold">*</span></label>
+                            <input type="password" class="span12" tabindex="4" formControlName="password">
+                        </p>
+                        <p class="text-error" *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].touched" >
+                            لطفا پسورد خود را وارد کنید
+                        </p>
+                        <p class="text-error" *ngIf="loginForm.controls['password'].errors?.['maxlength'] && loginForm.controls['password'].touched" >
+                          تعداد کاراکتر ها نمیتواند بیشتر از 100 باشد
+                        </p>
+              
+                 
+
+
+
+
+
+                      
+                  
+
+                      
+                        <p>
+                            <button class="btn btn-primary bold" [disabled]="loginForm.invalid" type="submit" tabindex="7" id="submit">ورود  </button>
+                        </p>
+                        <swal
+                        #sweetAlart
+                        title="اخطار"
+                        text=""
+                        icon="warning"
+                     >
+                      </swal>
+                    </form>
+                </section>
+                
+                <hr />
+                
+             
+
+            </section> <!-- /main content -->
+            
+            <!--  ==========  -->
+            <!--  = Sidebar =  -->
+            <!--  ==========  -->
+            <aside class="span4">
+                
+      
+
+            </aside> <!-- /sidebar -->
+
+        </div>
+    </div>
+</div> <!-- /container -->

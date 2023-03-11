@@ -1,0 +1,124 @@
+<div class="darker-stripe">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="index.html">لباسی</a>
+                    </li>
+                    <li><span class="icon-chevron-right"></span></li>
+                    <li>
+                        <a >پنل کاربری </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="push-up top-equal blocks-spacer-last">
+        <div class="row">
+            
+            <!--  ==========  -->
+            <!--  = Main Title =  -->
+            <!--  ==========  -->
+            
+            <div class="span12">
+                <div class="title-area">
+                    <h1 class="inline"><span class="light"> </span> تغییر مشخصات</h1>
+                </div>
+            </div>
+            
+            <!--  ==========  -->
+            <!--  = Main content =  -->
+            <!--  ==========  -->
+            <section class="span8 single single-page">
+                
+                <!--  ==========  -->
+                <!--  = Post =  -->
+                <!--  ==========  -->
+             
+                
+          
+                
+                <!--  ==========  -->
+                <!--  = Contact Form =  -->
+                <!--  ==========  -->
+                <section class="contact-form-container">
+                    
+                    <h3 class="push-down-25"><span class="light"></span> </h3>
+                    
+                    <form [formGroup]="userEditForm" (ngSubmit)="submitUserEditForm()"  class="form form-inline form-contact">
+                        <p class="push-down-20">
+                            <label for="firstName">نام<span class="red-clr bold">*</span></label>
+                            <br>
+                            <input type="text" aria-required="true" tabindex="1" size="30" value="" id="firstName" formControlName="firstName" required>
+                        </p>
+                        <p class="text-error" *ngIf="userEditForm.controls['firstName'].errors?.['required'] && userEditForm.controls['firstName'].touched" >
+                            لطفا نام خود را وارد کنید
+                        </p>
+                        <p class="text-error" *ngIf="userEditForm.controls['firstName'].errors?.['maxlength'] && userEditForm.controls['firstName'].touched" >
+                          تعداد کاراکتر ها نمیتواند بیشتر از 100 باشد
+                        </p>
+            
+                        <p class="push-down-20">
+                            <label for="lastName">نام خانوادگی<span class="red-clr bold">*</span></label>
+                            <br>
+                            <input type="text" tabindex="3" size="30" value="" id="lastName" formControlName="lastName">
+                        </p>
+                        <p class="text-error" *ngIf="userEditForm.controls['lastName'].errors?.['required'] && userEditForm.controls['lastName'].touched" >
+                            لطفا نام خانوادگی خود را وارد کنید
+                        </p>
+                        <p class="text-error" *ngIf="userEditForm.controls['lastName'].errors?.['maxlength'] && userEditForm.controls['lastName'].touched" >
+                          تعداد کاراکتر ها نمیتواند بیشتر از 100 باشد
+                        </p>
+
+                        <p class="push-down-20">
+                            <label for="address">آدرس*</label>
+                            <br>
+                            <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="address" formControlName="address" name="comment" required></textarea>
+                        </p>
+                        <p class="text-error" *ngIf="userEditForm.controls['address'].errors?.['required'] && userEditForm.controls['lastName'].touched" >
+                            لطفا آدرس  خود را وارد کنید
+                        </p>
+                        <p class="text-error" *ngIf="userEditForm.controls['address'].errors?.['maxlength'] && userEditForm.controls['lastName'].touched" >
+                          تعداد کاراکتر ها نمیتواند بیشتر از 500 باشد
+                        </p>
+                        <p>
+                            <button class="btn btn-primary bold" type="submit" tabindex="5" id="submit">ثبت </button>
+                        </p>
+                    </form>
+                </section>
+                <swal
+                #sweetAlart
+                title="اطلاعیه"
+                text=""
+                icon="success"
+             >
+              </swal>
+                
+        
+                
+                <!--  ==========  -->
+                <!--  = Company Info with Google Maps =  -->
+                <!--  ==========  -->
+       
+
+            </section> <!-- /main content -->
+            
+            <!--  ==========  -->
+            <!--  = Sidebar =  -->
+            <!--  ==========  -->
+            <aside class="span4">
+                
+                <!--  ==========  -->
+                <!--  = Opening Times Widget =  -->
+                <!--  ==========  -->
+                <app-user-sidebar [selectedTab]="0"></app-user-sidebar>
+
+            </aside> <!-- /sidebar -->
+
+        </div>
+    </div>
+</div> <!-- /container -->

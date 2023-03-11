@@ -1,0 +1,13 @@
+.line {
+    direction: rtl;
+}
+.longtext {
+    width: 200px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;     
+  }
+.cart {
+  cursor: pointer;
+}

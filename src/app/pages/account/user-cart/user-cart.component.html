@@ -1,0 +1,120 @@
+<div class="darker-stripe">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="index.html">لباسی</a>
+                    </li>
+                    <li><span class="icon-chevron-right"></span></li>
+                    <li>
+                        <a >پنل کاربری </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="push-up top-equal blocks-spacer-last">
+        <div class="row">
+            
+            <!--  ==========  -->
+            <!--  = Main Title =  -->
+            <!--  ==========  -->
+            
+            <div class="span12">
+                <div class="title-area">
+                    <h1 class="inline"><span class="light"> </span>سبد خرید</h1>
+                </div>
+            </div>
+            
+            <!--  ==========  -->
+            <!--  = Main content =  -->
+            <!--  ==========  -->
+            <section class="span8 single single-page">
+                
+                <!--  ==========  -->
+                <!--  = Post =  -->
+                <!--  ==========  -->
+             
+                
+          
+                
+                <!--  ==========  -->
+                <!--  = Contact Form =  -->
+                <!--  ==========  -->
+                <section class="contact-form-container">
+                    
+                   
+                    
+               
+                </section>
+                <swal
+                #sweetAlart
+                title="اطلاعیه"
+                text=""
+                icon="success"
+             >
+              </swal>
+                
+        
+                
+                <!--  ==========  -->
+                <!--  = Company Info with Google Maps =  -->
+                <!--  ==========  -->
+       
+                <table class="table table-bordered table-striped" *ngIf="details!=null && details.length>0 ">
+                    <thead>
+                      <tr>
+                        <th>محصول</th>
+                        <th>تعداد</th>
+                        <th>قیمت</th>
+                        <th>محصولات</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let detail of details">
+                        <td>
+                          <span class="">{{detail.title}}</span>
+                        </td>
+                        <td>
+                          <span class="">{{detail.count}}</span>
+                        </td>
+                        <td>
+                          <span class="">{{detail.price}}</span>
+                        </td>
+                        <td>
+                        <a class="btn btn-danger" (click)="removeOrderDetail(detail.id)">حذف کردن</a>
+                        </td>
+                     
+                      </tr>
+                    
+                
+                      <tr>
+                        <td colspan="4">
+                          <p>قیمت نهایی : {{totalPrice}}</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p class="alert alert-info" *ngIf="details==null || details.length==0 " >سبد خرید شما خالی می باشد</p>
+            </section> <!-- /main content -->
+            
+            <!--  ==========  -->
+            <!--  = Sidebar =  -->
+            <!--  ==========  -->
+            <aside class="span4">
+                
+                <!--  ==========  -->
+                <!--  = Opening Times Widget =  -->
+                <!--  ==========  -->
+         <app-user-sidebar [selectedTab]="1"></app-user-sidebar>
+                
+
+            </aside> <!-- /sidebar -->
+
+        </div>
+    </div>
+</div> <!-- /container -->

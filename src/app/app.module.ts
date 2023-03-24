@@ -72,7 +72,7 @@ import { UserSidebarComponent } from './SharedComponent/user-sidebar/user-sideba
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    SweetAlert2Module.forRoot(),
+   SweetAlert2Module.forRoot(),
     NgxLoadingModule.forRoot({
       fullScreenBackdrop:true,
 

@@ -1,0 +1,116 @@
+/* .dark-mode{
+    --color-primary-500: #ef4056;
+    --color-primary-700: #ef394e;
+    --color-secondary-500: #e0ffcd;
+    --color-secondary-700: #fdffcd;
+    --color-tertiary-500: #ffebbb;
+    --color-tertiary-700: #ffcab0;
+    --color-quaternary-500: #668ba4;
+    --color-quaternary-700: #3c5924;
+  } */
+  
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+/* 
+body{
+    background-color: var(--color-secondary-500) ;
+  }
+  .navbar-inner {
+    background-image: linear-gradient(to bottom, var(--color-secondary-500), var(--color-secondary-500));
+  
+  }
+  .navbar .nav > li > a {
+    color: var(--color-quaternary-500);
+  }
+  .push-up{
+    background-color: var(--color-secondary-500);
+  }
+  .banner.colored{
+    background-image: linear-gradient(to bottom,var(--color-tertiary-500), var(--color-secondary-500));
+   color: #3c5924;
+   border: 9px solid var(--color-secondary-500);
+  }
+  .banner .title {
+    display: block;
+    font-size: 18px;
+    color: var(--color-quaternary-500);
+  }
+  .banner{
+    background-image: linear-gradient(to bottom, var(--color-secondary-700), var(--color-secondary-700));
+    border: 9px solid var(--color-secondary-500);
+    margin-bottom: 18px;
+  }
+  .nav-pills.nav-stacked > li > a, .nav-pills.nav-stacked > li > a {
+    background-color: var(--color-secondary-700);
+  }
+  blockquote{
+    background-color: var(--color-secondary-700);
+  }
+  .title-area {
+    background-color: var(--color-secondary-500);
+    
+    }
+    .opening-time .week-day {
+      background-color: var(--color-secondary-700);
+  }
+  textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    background-color: var(--color-secondary-500);
+  }  */

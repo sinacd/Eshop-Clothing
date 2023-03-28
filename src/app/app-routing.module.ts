@@ -14,7 +14,7 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 
 const routes: Routes = [
   {path:'',component:IndexComponent },
-  {path:'contact-us',component:ContactUsComponent,canActivate:[UserAuthGuard]},
+  {path:'contact-us',component:ContactUsComponent},
   {path:'about-us',component:AboutUsComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},

@@ -2,7 +2,7 @@ import { ProductsService } from './services/products.service';
 import { AuthService } from './services/auth.service';
 import { EshopInterceptor } from './Utilities/EshopInterceptor';
 import { SliderService } from './services/slider.service';
-import { NgModule } from '@angular/core';
+import { NgModule, } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -60,7 +60,8 @@ import { UserSidebarComponent } from './SharedComponent/user-sidebar/user-sideba
     HeaderCartComponent,
     EditAccountComponent,
     UserCartComponent,
-    UserSidebarComponent
+    UserSidebarComponent,
+    
     
 
 

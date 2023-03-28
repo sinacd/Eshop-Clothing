@@ -3,12 +3,14 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from './../../services/auth.service';
 import { CurrentUser } from './../../DTOs/Sliders/Account/CurrentUser';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-site-header',
   templateUrl: './site-header.component.html',
-  styleUrls: ['./site-header.component.scss']
+  styleUrls: ['./site-header.component.scss'],
+   encapsulation: ViewEncapsulation.None
+
 })
 export class SiteHeaderComponent implements OnInit {
 
@@ -18,7 +20,40 @@ export class SiteHeaderComponent implements OnInit {
     private orderService:OrderService
     ) { }
 user:CurrentUser | null | undefined;
+event!:string ;
+/* tSwitcher = document.getElementById('dark-mode') as HTMLInputElement; */
+IstSwitcher!: number ;
+ element = document.body;
+  onpageLoad = localStorage.getItem("theme") ;
+
   ngOnInit(): void {
+
+/*     if(this.onpageLoad != null && this.onpageLoad  == 'dark-mode'){
+
+      this.element.classList.toggle('dark-mode');
+      this.IstSwitcher = 1;
+  
+    }   */
+    switch(this.onpageLoad != null && this.onpageLoad )
+    {
+
+      case 'dark-mode0':
+        this.element.classList.toggle('dark-mode');
+        this.IstSwitcher = 0;
+        break;
+      case 'dark-mode':
+        this.element.classList.toggle('dark-mode');
+        this.IstSwitcher = 1;
+        break;
+      case 'dark-mode2':
+        this.element.classList.toggle('dark-mode2');
+        this.IstSwitcher = 2;
+        break;
+    }
+
+
+
+
 
 
     this.authService.getCurrentUser().subscribe(user=>{
@@ -39,5 +74,21 @@ user:CurrentUser | null | undefined;
     this.orderService.setOrderDetails(null)
     this.router.navigate(['']);
   }
+  themeToggle(event: any){
+
+    
+     if(event.target.checked){
+      this.event=event.target.id;
+      localStorage.setItem('theme',event.target.id);
+      this.element.classList.toggle(event.target.id);
+    
+    }
+    else{
+      localStorage.setItem('theme', '');
+      this.element.classList.remove(event.target.id);
+    }  
+  }
+
+
 
 }

@@ -1,6 +1,7 @@
 import { Slider } from './../../../DTOs/Sliders/Slider';
 import { SliderService } from './../../../services/slider.service';
 import { Component, OnInit } from '@angular/core';
+import { SliderImagePath } from 'src/app/Utilities/PathTools';
 
 declare function homeSlider():any;
 
@@ -12,7 +13,7 @@ declare function homeSlider():any;
 export class SliderComponent implements OnInit {
 
 public sliders:Slider[]=[];
-
+sliderImagePath = SliderImagePath;
 
   constructor(private SliderService:SliderService) { }
 

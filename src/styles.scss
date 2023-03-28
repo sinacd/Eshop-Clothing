@@ -1,23 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-:root{
-  --color-primary-700: #ef394e;
+/*  :root{
   --color-primary-500: #ef4056;
-}
+  --color-primary-700: #ef394e;
+  --color-secondary-500: #e0ffcd;
+  --color-secondary-700: #fdffcd;
+  --color-tertiary-500: #ffebbb;
+  --color-tertiary-700: #ffcab0;
+  --color-quaternary-500: #668ba4;
+  --color-quaternary-700: #3c5924;
+} */
+
+
 .cursor-pointer {
   cursor: pointer;
 }
 
 html, body {
   height: 100%;
+  font-family: BKoodak !important;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 
 .margin-left-10 {
   margin-left: 10px !important;
+}
+/*  */
+h1,h2,h4,h6 {
+  font-family: BKoodak !important;
 }

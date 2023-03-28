@@ -1,3 +1,6 @@
 .mat-slider{
     width: 150px;
 }
+.darker-stripe{
+    background: -webkit-radial-gradient(40% 30%, circle farthest-side,var(--color-primary-500),var(--color-primary-500)),var(--color-primary-500);
+}

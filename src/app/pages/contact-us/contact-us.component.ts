@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-us.component.scss']
 })
 export class ContactUsComponent implements OnInit {
+  public searchStr: string="adele";
+ 
+  aImg?: string;
+  constructor() {
 
-  constructor() { }
-
-  ngOnInit(): void {
   }
-
-}
+ 
+  ngOnInit(): void {
+   this.searchArtists();
+   this.searchStr=''; 
+    }
+    public searchArtists()
+    {
+     console.log(this.searchStr);
+     
+  
+    } 
+    onsubmit() {
+    }
+  }
+  

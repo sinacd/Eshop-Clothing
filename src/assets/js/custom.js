@@ -43,13 +43,13 @@ jQuery(document).ready(function($) {
         }, 2e3, "easeInOutQuart");
         return false;
     });
-    $("#spyMenu a").click(function() {
+ /*    $("#spyMenu a").click(function() {
         var $this = $(this);
         $("html, body").animate({
             scrollTop: $($this.attr("href")).offset().top - 70
         }, 700, "easeInOutQuart");
         return false;
-    });
+    }); */
     //  ========== 
     //  = Carousel = 
     //  ==========
@@ -505,13 +505,13 @@ jQuery(document).ready(function($) {
         }
         
         
-        var recalculateFromBottom = function() {
+   /*      var recalculateFromBottom = function() {
             if ( !isTouch() ) {
                 $('.large-screen #spyMenu').affix({
                     offset : {
                         top: $('.large-screen #spyMenu').offset().top - 70,
-                        bottom: function() {
-                            return $('footer').outerHeight(true) + 30;
+                        bottom: function() {            
+                            return $('footer').outerHeight(true) - 200;
                         }
                     }
                 });
@@ -520,10 +520,12 @@ jQuery(document).ready(function($) {
         };
         if($('#spyMenu').length > 0) {
             recalculateFromBottom();
-        }
+        } */
         
     };
     var fromLastResize;
+
+    
     // counter in miliseconds
     $(window).resize(function() {
         determineScreenClass();
@@ -533,15 +535,15 @@ jQuery(document).ready(function($) {
         }, 250);
     });
     
-    $(window).on('scroll', function() {
-        if( $('#spyMenu').hasClass('affix-bottom') ) {
-            $('#spyMenu').css({
-                bottom: $('footer').outerHeight(true) + 30
+/*     $(window).on('scroll', function() {
+        if( $(' #spyMenu').hasClass('affix-bottom') ) {
+            $(' #spyMenu').css({
+                bottom: $('footer').outerHeight(true) -200
             });
         } else {
-            $('#spyMenu').removeAttr('style');
+            $(' #spyMenu').removeAttr('style'); 
         }
-    });
+    }); */
     
 
     //  ========== 
@@ -629,4 +631,28 @@ function  JqUiSlider(){
             $sliderParent.find(".max-val").val(prepareCurrency($(this).slider("values", 1)));
         }
     });
+}
+function SmoothAnchorLink (){
+    $("#spyMenu a").click(function() {
+        var $this = $(this);
+        $("html, body").animate({
+            scrollTop: $($this.attr("href")).offset().top - 70
+        }, 700, "easeInOutQuart");
+        return false;
+    });
+
+    var headerHeight = $('header').outerHeight(true); // true value, adds margins to the total height
+    var footerHeight = $('footer').outerHeight() - 200;
+    $('#account-overview-container').affix({
+        offset: {
+            top: headerHeight,
+            bottom: footerHeight
+        }
+    }).on('affix.bs.affix', function () { // before affix
+        $(this).css({
+            /*'top': headerHeight,*/    // for fixed height
+            'width': $(this).outerWidth()  // variable widths
+        });
+    });
+
 }

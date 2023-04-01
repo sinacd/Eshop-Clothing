@@ -12,8 +12,9 @@ declare function JqUiSlider():any;
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  public searchStr: string="کیف";
   filterProducts: FilterProductsDTO = new FilterProductsDTO(
-    '', null, null, 1, 0, 0, 0, 4, 0, 1,null, [], []
+   null, null, null, 1, 0, 0, 0, 4, 0, 1,null, [], []
   );
   isLoading = true;
   pages: number[] = [];
@@ -27,6 +28,8 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {    
+
+    this.searchStr=''; 
     this.activatedRoute.queryParams.subscribe(params => {
       
        let pageId = 1;
@@ -40,7 +43,8 @@ export class ProductsComponent implements OnInit {
         this.filterProducts.startPrice = params['startPrice'] ? params['startPrice'] : null;
       this.filterProducts.endPrice = params['endPrice'] ? params['endPrice'] : null;
       this.filterProducts.orderBy = params['orderBy'] ? params['orderBy'] : null;
-      console.log("this is paramas",params);
+      this.filterProducts.title = params['title'] ? params['title'] : null;
+   
 
       this.getProducts();
     });
@@ -53,6 +57,20 @@ export class ProductsComponent implements OnInit {
     });
 
     JqUiSlider();
+  }
+  search(){
+    this.filterProducts.title =this.searchStr;
+
+this.router.navigate(['products'],{queryParams:{
+     
+  title:this.filterProducts.title,
+  orderBy:this.filterProducts.orderBy,
+  categories: this.filterProducts.categories,
+  startPrice: this.filterProducts.startPrice,
+  endPrice: this.filterProducts.endPrice
+  }})
+
+    
   }
   formatLabel(value: number) {
     if (value<1000000&&value >= 1000) {
@@ -86,6 +104,7 @@ filterButton() {
   this.router.navigate(
     ['products'], {
       queryParams: {
+        title:this.filterProducts.title,
         orderBy:this.filterProducts.orderBy,
         categories: this.filterProducts.categories,
         startPrice: this.filterProducts.startPrice,
@@ -102,6 +121,7 @@ filterButton() {
     {
       this.filterProducts.orderBy=null;
       this.router.navigate(['products'],{queryParams:{
+        title:this.filterProducts.title,
         categories: this.filterProducts.categories,
         orderBy:this.filterProducts.orderBy,
          startPrice: this.filterProducts.startPrice,
@@ -109,7 +129,7 @@ filterButton() {
     }
     else
     this.router.navigate(['products'],{queryParams:{
-     
+      title:this.filterProducts.title,
       orderBy:this.filterProducts.orderBy,
       categories: this.filterProducts.categories,
       startPrice: this.filterProducts.startPrice,
@@ -136,10 +156,14 @@ filterButton() {
     if (this.filterProducts.categories.length > 0) {
       console.log("bug is here",this.filterProducts);
       
-      this.router.navigate(['products'], {queryParams: {categories: this.filterProducts.categories,orderBy:this.filterProducts.orderBy, startPrice: this.filterProducts.startPrice,
+      this.router.navigate(['products'], {queryParams: {
+        title:this.filterProducts.title,
+        categories: this.filterProducts.categories,orderBy:this.filterProducts.orderBy, startPrice: this.filterProducts.startPrice,
         endPrice: this.filterProducts.endPrice}});
     } else {
-      this.router.navigate(['products'], {queryParams: {categories: this.filterProducts.categories,orderBy:this.filterProducts.orderBy, startPrice: this.filterProducts.startPrice,
+      this.router.navigate(['products'], {queryParams: {
+        title:this.filterProducts.title,
+        categories: this.filterProducts.categories,orderBy:this.filterProducts.orderBy, startPrice: this.filterProducts.startPrice,
         endPrice: this.filterProducts.endPrice}});
     }
   }
@@ -148,7 +172,9 @@ filterButton() {
     
   }
   setPage(page: number) {
-    this.router.navigate(['products'], {queryParams: {pageId: page,  orderBy:this.filterProducts.orderBy,
+    this.router.navigate(['products'], {queryParams: {
+      title:this.filterProducts.title,
+      pageId: page,  orderBy:this.filterProducts.orderBy,
       categories: this.filterProducts.categories,
       startPrice: this.filterProducts.startPrice,
       endPrice: this.filterProducts.endPrice  }});
@@ -156,7 +182,9 @@ filterButton() {
   }
   nextPage(page:number){
    
-    this.router.navigate(['products'],{queryParams:{pageId:page,  orderBy:this.filterProducts.orderBy,
+    this.router.navigate(['products'],{queryParams:{
+      title:this.filterProducts.title,
+      pageId:page,  orderBy:this.filterProducts.orderBy,
       categories: this.filterProducts.categories,
       startPrice: this.filterProducts.startPrice,
       endPrice: this.filterProducts.endPrice }})

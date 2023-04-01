@@ -13,7 +13,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 })
 export class SiteHeaderComponent implements OnInit {
-
+  public searchStr: string="adele";
+title:any='کیف';
   constructor(private authService:AuthService,
     private cookieService:CookieService,
     private router:Router,
@@ -27,7 +28,8 @@ IstSwitcher!: number ;
   onpageLoad = localStorage.getItem("theme") ;
 
   ngOnInit(): void {
-
+   
+    this.searchStr=''; 
 /*     if(this.onpageLoad != null && this.onpageLoad  == 'dark-mode'){
 
       this.element.classList.toggle('dark-mode');
@@ -88,7 +90,12 @@ IstSwitcher!: number ;
       this.element.classList.remove(event.target.id);
     }  
   }
-
+  search(){
+    console.log(this.searchStr);
+    this.router.navigate(['products/'],{queryParams:{title:this.searchStr}});
+    
+  /*   this.router.navigate([`products?title=${this.searchStr}`]); */
+  }
 
 
 }

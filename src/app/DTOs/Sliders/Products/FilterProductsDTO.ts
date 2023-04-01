@@ -2,7 +2,7 @@ import { Product } from './product';
 import { ProductsOrderBy } from './ProductsOrderBy';
 export class FilterProductsDTO {
     constructor(
-        public title:string,
+        public title:string | null,
         public startPrice:number|null,
         public endPrice:number|null,
         public pageId:number,

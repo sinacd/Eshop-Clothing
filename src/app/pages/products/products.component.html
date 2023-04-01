@@ -1,6 +1,7 @@
 <!--  ==========  -->
 <!--  = Breadcrumbs =  -->
 <!--  ==========  -->
+
 <div class="darker-stripe">
     <div class="container">
       <div class="row">
@@ -52,7 +53,7 @@
                 <div class="accordion-inner">
   
                   <fieldset *ngIf="categories.length > 0">
-                    <label [for]="'cat_' + cat.id" class="checkbox" *ngFor="let cat of categories">
+                    <label [for]="'cat_' + cat.id" class="checkasdox" *ngFor="let cat of categories">
                       <input type="checkbox" [value]="cat.id" [id]="'cat_' + cat.id "
                              (change)="filterCategories($event)"
                              [checked]="filterProducts.categories!.indexOf(cat.id) >= 0"
@@ -175,4 +176,5 @@
       </div>
     </div>
   </div>
-  <ngx-loading [show]="isLoading"></ngx-loading>
+<!--   <ngx-loading [show]="isLoading"></ngx-loading>
+ -->

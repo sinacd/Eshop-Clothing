@@ -11,6 +11,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { ActiveAccountComponent } from './pages/active-account/active-account.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { PaymentComponent } from './pages/account/payment/payment.component';
+import { PaymentHistoryComponent } from './pages/account/payment-history/payment-history.component';
 
 const routes: Routes = [
   {path:'',component:IndexComponent },
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path:'products/:productId/:productName',component:ProductDetailComponent},
   {path:'user/edit',component:EditAccountComponent,canActivate:[UserAuthGuard]},
   {path:'user/cart',component:UserCartComponent,canActivate:[UserAuthGuard]},
+  {path:'user/payment-history',component:PaymentHistoryComponent},
+  {path:'online-payment/:Id',component:PaymentComponent,canActivate:[UserAuthGuard]},
 ];
 
 @NgModule({

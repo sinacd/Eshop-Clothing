@@ -1,5 +1,6 @@
 import { OrderService } from './../../../services/order.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderCartDetail } from 'src/app/DTOs/Sliders/Orders/OrderCartDetail';
 
 @Component({
@@ -13,7 +14,8 @@ export class UserCartComponent implements OnInit {
   totalPrice = 0;
 
   constructor(
-    public orderService: OrderService
+    public orderService: OrderService,
+    private router:Router
   ) {
   }
 
@@ -42,6 +44,14 @@ removeOrderDetail(detailId:number){
       }
     }
   })
+}
+payment(){
+ 
+ this.orderService.getPayment().subscribe(res => {
+console.log(res);
+window.location.href = res.data.message;
+}); 
+ 
 }
 
 

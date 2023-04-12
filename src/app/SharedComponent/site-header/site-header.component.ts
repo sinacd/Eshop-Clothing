@@ -21,8 +21,8 @@ title:any='کیف';
     private orderService:OrderService
     ) { }
 user:CurrentUser | null | undefined;
-event!:string ;
 /* tSwitcher = document.getElementById('dark-mode') as HTMLInputElement; */
+event!:string ;
 IstSwitcher!: number ;
  element = document.body;
   onpageLoad = localStorage.getItem("theme") ;

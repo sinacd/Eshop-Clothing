@@ -656,3 +656,10 @@ function SmoothAnchorLink (){
     });
 
 }
+function table(){
+
+
+
+}
+	    
+

@@ -34,8 +34,12 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { OrderService } from './services/order.service';
 import { HeaderCartComponent } from './SharedComponent/header-cart/header-cart.component';
 import { EditAccountComponent } from './pages/account/edit-account/edit-account.component';
-import { UserCartComponent } from './pages/account/user-cart/user-cart.component';
+
 import { UserSidebarComponent } from './SharedComponent/user-sidebar/user-sidebar.component';
+import { UserCartComponent } from './pages/account/user-cart/user-cart.component';
+import { PaymentComponent } from './pages/account/payment/payment.component';
+import { PaymentHistoryComponent } from './pages/account/payment-history/payment-history.component';
+
 
 @NgModule({
   declarations: [
@@ -59,9 +63,10 @@ import { UserSidebarComponent } from './SharedComponent/user-sidebar/user-sideba
     ProductDetailComponent,
     HeaderCartComponent,
     EditAccountComponent,
-    UserCartComponent,
     UserSidebarComponent,
-    
+    UserCartComponent,
+    PaymentComponent,
+    PaymentHistoryComponent
     
 
 

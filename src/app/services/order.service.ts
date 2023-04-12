@@ -3,6 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IResponseResult } from '../DTOs/Sliders/Common/IResponseResult';
+import { OnlinePayment } from '../DTOs/Sliders/Payment/OnlinePayment';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,20 @@ export class OrderService {
   }
   removeOrderDetail(detailId:number):Observable<IResponseResult<OrderCartDetail[]>>{
     return this.http.get<IResponseResult<OrderCartDetail[]>>("order/remove-order-detail/"+detailId);
+  }
+  getPayment():Observable<any>{
+    return this.http.get<any>('order/payment');
+  }
+  getOnlinePayment(filter:OnlinePayment):Observable<IResponseResult<OnlinePayment>>{
+    const params = new HttpParams().set('Authority',filter.authority.toString())
+    .set('Status',filter.status)
+    return this.http.get<IResponseResult<OnlinePayment>>('order/online-payment/'+filter.id,{params});
+  }
+  getUserOrders():Observable<IResponseResult<any>>{
+    return this.http.get<IResponseResult<any>>("order/list-orders");
+  }
+  GetUserOrderDetailsHistory():Observable<IResponseResult<OrderCartDetail[][]>>{
+    return this.http.get<IResponseResult<OrderCartDetail[][]>>("order/get-order-details-history");
   }
 }
 

@@ -1,0 +1,187 @@
+<div class="darker-stripe">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="index.html">لباسی</a>
+                    </li>
+                    <li><span class="icon-chevron-right"></span></li>
+                    <li>
+                        <a >پنل کاربری </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="push-up top-equal blocks-spacer-last">
+        <div class="row">
+            
+            <!--  ==========  -->
+            <!--  = Main Title =  -->
+            <!--  ==========  -->
+            
+            <div class="span12">
+                <div class="title-area">
+                    <h1 class="inline"><span class="light"> </span>تاریخچه خرید ها</h1>
+                </div>
+            </div>
+            
+            <!--  ==========  -->
+            <!--  = Main content =  -->
+            <!--  ==========  -->
+            <section class="span8 single single-page">
+                
+                <!--  ==========  -->
+                <!--  = Post =  -->
+                <!--  ==========  -->
+             
+                
+          
+                
+                <!--  ==========  -->
+                <!--  = Contact Form =  -->
+                <!--  ==========  -->
+                <section class="contact-form-container">
+                    
+                   
+                    
+               
+                </section>
+                <swal
+                #sweetAlart
+                title="اطلاعیه"
+                text=""
+                icon="success"
+             >
+              </swal>
+                
+        
+                
+                <!--  ==========  -->
+                <!--  = Company Info with Google Maps =  -->
+                <!--  ==========  -->
+       
+                <table class="table table-bordered table-striped" *ngIf="orders!=null && orders.length>0 ">
+                    <thead>
+                      <tr>
+                        <th style="width:300px">تاریخ</th>
+                        <th>هزینه سبد</th>
+                        <th>وضعیت پرداخت</th>
+                        <th>جزییات</th>
+                      </tr>
+                    </thead>
+                    <tbody  >
+                   
+                      <ng-container *ngFor="let data of orders index as i">
+                        <tr (click)="data.expanded = !data.expanded" class="prime">
+                          <td>
+                            <span class="">{{data.paymentDate | date:' dd/ MM/ y ' }}</span>
+                          </td>
+                          <td>
+                            <span class="">{{data.finalPayment}}</span>
+                          </td>
+                          <td>
+                            <span class="">پرداخت شده</span>
+                          </td>
+                          <td> <a class="btn btn-white" >  جزییات</a> </td>
+                                         
+                      
+                        </tr>
+                      
+                      
+                        
+                        <ng-container *ngIf="data.expanded">
+                          <th>محصول</th>
+                          <th>تعداد</th>
+                          <th>قیمت</th>
+                          <tr *ngFor="let details of  findDetails(i) ">
+                            
+                            <td style="padding-left: 12px"> {{details.title}} </td>
+                            <td> {{details.count}} </td>
+                            <td> {{details.price}} </td>
+                          </tr>
+                        </ng-container>
+                      </ng-container>
+                
+                    <!--   <tr>
+                        <td colspan="4">
+                          <p>قیمت نهایی : {{totalPrice}}</p>
+                        </td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+<!--  -->
+
+
+
+
+                  <!--  -->
+                  <p class="alert alert-info" *ngIf="orders==null || orders.length==0 " >تاریخچه سبد ها خرید شما خالی می باشد</p>
+            </section> <!-- /main content -->
+            
+            <!--  ==========  -->
+            <!--  = Sidebar =  -->
+            <!--  ==========  -->
+            <aside class="span4">
+                
+                <!--  ==========  -->
+                <!--  = Opening Times Widget =  -->
+                <!--  ==========  -->
+         <app-user-sidebar [selectedTab]="2"></app-user-sidebar>
+                
+
+            </aside> <!-- /sidebar -->
+
+        </div>
+    </div>
+</div> 
+<!-- /container -->
+<!--  <table class="table table-hover table-bordered table-responsive-xl">
+	<thead>
+    <th>تاریخ</th>
+    <th>هزینه سبد</th>
+    <th>وضعیت پرداخت</th>
+    <th>جزییات</th>
+	</thead>
+
+	<tbody>
+
+<ng-container *ngFor="let data of orders">
+  <tr (click)="data.expanded = !data.expanded" class="prime">
+    <td>
+      <span class="">{{data.paymentDate | date:' dd/ MM/ y ' }}</span>
+    </td>
+    <td>
+      <span class="">{{data.finalPayment}}</span>
+    </td>
+    <td>
+      <span class="">پرداخت شده</span>
+    </td>
+    <td> <a class="btn btn-white" (click)="getOrderDetailHistory(data.id)" >  جزییات</a> </td>
+                   
+
+  </tr>
+
+
+	
+  <ng-container *ngIf="data.expanded">
+    <th>محصول</th>
+    <th>تعداد</th>
+    <th>قیمت</th>
+    <tr *ngFor="let details of details">
+      
+      <td style="padding-left: 12px"> {{details.title}} </td>
+      <td> {{details.count}} </td>
+      <td> {{details.price}} </td>
+    </tr>
+  </ng-container>
+</ng-container>
+	</tbody>
+</table>
+ 
+
+ -->

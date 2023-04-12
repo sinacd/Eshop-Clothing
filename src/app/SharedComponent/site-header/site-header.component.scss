@@ -200,7 +200,10 @@ label {
     margin: 0;
 }
 .dropdown-menu input {
-    display: none;   
+  display: block;  
+}
+input {
+    display: block;   
 }
 span  {
     font-size: 15px;

@@ -1,6 +1,6 @@
 # Eshop Pro Front ENd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15. there is another repo on my account called  [AngularEshop-backEnd](https://github.com/sinacd/AngularEshop-backEnd) which is the backend api for this project .
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15. there is another repo on my account called  [Eshop-Clothing-Backend](https://github.com/sinacd/Eshop-Clothing-Backend) which is the backend api for this project .
 
 
 landing page             |  book management
